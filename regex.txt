@@ -1,0 +1,16 @@
+double quotes string no regex ka jadoo
+
+
+ag "ecid(.*\n)*(?=ecid)?" ./log.log
+
+ag "ecid\\[12\\](.*\n)*?(?=ecid)" ./log.log
+
+ag "ecid\\[11\\](.*\n)*?(?=.*?\necid\\[.*\\])" ./log.log
+
+
+ag "ecid\\[12\\](.*\n)*?(?=.*?\necid\\[.*\\])" --nonumbers  ./log.log > a.txt
+
+ag "ecid\\[\Q11\E\\](.*\n)*?(?=.*?\necid\\[.*\\])" --nonumbers  ./log.log
+
+
+
