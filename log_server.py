@@ -28,7 +28,7 @@ async def main(uri):
             result = result.decode("utf-8")
             # print(result)
             # FIXME views later return and asyncio sleep
-            await asyncio.sleep(4)
+            # await asyncio.sleep(4)
             await websocket.send(
                 json.dumps({
                     'type': 'log_result',
