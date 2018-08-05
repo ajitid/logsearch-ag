@@ -1,6 +1,8 @@
+import socket
+import json
+
 ############
 # getting ip addr
-import socket
 from asyncio.subprocess import create_subprocess_shell, PIPE
 
 
@@ -15,6 +17,7 @@ def get_ip():
     finally:
         s.close()
     return IP
+
 ############
 # run async console cmd
 
@@ -22,4 +25,21 @@ def get_ip():
 async def console(cmd):
     p = await create_subprocess_shell(cmd, stdout=PIPE)
     return await p.stdout.read()
+
+#########
+# async console cmd as task
+
+
+async def console_task(cmd, uid, websocket):
+    p = await create_subprocess_shell(cmd, stdout=PIPE)
+    result = await p.stdout.read()
+    result = result.decode("utf-8")
+    await websocket.send(
+        json.dumps({
+            'type': 'log_result',
+            'ip': get_ip(),
+            'uid': uid,
+            'result': result
+        })
+    )
 #########
