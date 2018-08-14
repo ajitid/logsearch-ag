@@ -31,7 +31,10 @@ async def console(cmd):
 
 
 async def console_task(cmd, uid, websocket):
-    p = await create_subprocess_shell(cmd, stdout=PIPE)
+    p = await create_subprocess_shell(
+        r'ag "ecid\\[\Q' + cmd +
+        r'\E\\](.*\n)*?(?=(.*?\necid\\[.*\\]))|(ecid\\[12\\](.*\n)*)" --nonumbers --nobreak --nofilename  ./log2.log',
+        stdout=PIPE)
     result = await p.stdout.read()
     result = result.decode("utf-8")
     await websocket.send(
