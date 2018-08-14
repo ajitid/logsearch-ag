@@ -15,3 +15,4 @@ ag "ecid\\[\Q11\E\\](.*\n)*?(?=.*?\necid\\[.*\\])" --nonumbers  ./log.log
 # for last line match
 ag "ecid\\[\Q12\E\\](.*\n)*?(?=(.*?\necid\\[.*\\]))|(ecid\\[12\\](.*\n)*)" --nonumbers  ./log2.log
 
+ag "ecid\\[\Q12\E\\](.*\n)*?(?=(.*?\necid\\[.*\\]))|(ecid\\[12\\](.*\n)*)" --nonumbers --nobreak --nofilename  ./log2.log ./log1.log > pls.txt
