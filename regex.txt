@@ -12,5 +12,6 @@ ag "ecid\\[12\\](.*\n)*?(?=.*?\necid\\[.*\\])" --nonumbers  ./log.log > a.txt
 
 ag "ecid\\[\Q11\E\\](.*\n)*?(?=.*?\necid\\[.*\\])" --nonumbers  ./log.log
 
-
+# for last line match
+ag "ecid\\[\Q12\E\\](.*\n)*?(?=(.*?\necid\\[.*\\]))|(ecid\\[12\\](.*\n)*)" --nonumbers  ./log2.log
 
