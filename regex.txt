@@ -16,3 +16,7 @@ ag "ecid\\[\Q11\E\\](.*\n)*?(?=.*?\necid\\[.*\\])" --nonumbers  ./log.log
 ag "ecid\\[\Q12\E\\](.*\n)*?(?=(.*?\necid\\[.*\\]))|(ecid\\[12\\](.*\n)*)" --nonumbers  ./log2.log
 
 ag "ecid\\[\Q12\E\\](.*\n)*?(?=(.*?\necid\\[.*\\]))|(ecid\\[12\\](.*\n)*)" --nonumbers --nobreak --nofilename  ./log2.log ./log1.log > pls.txt
+
+
+cd using python and
+ ag "key: \Qid-01\E(.*\n)*?(?=(.*?\n.*key))|(key: \Qid-01\E(.*\n)*)" --nonumbers --nobreak --nofilename --depth 0  -G "(vlp.*log)|vncc\.log"
